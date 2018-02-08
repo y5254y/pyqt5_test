@@ -50,6 +50,7 @@ class VideoThread(QThread):
         video_capture = cv2.VideoCapture(self.__video_url)
         success, frame = video_capture.read()
         while success:
+            frame = cv2.resize(frame, (480, 360))
             height, width, fps = frame.shape
             bytesPerLine = 3*width
             cv2.cvtColor(frame, cv2.COLOR_BGR2RGB, frame)
