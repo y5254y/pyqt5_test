@@ -33,7 +33,7 @@ class MyWindows(QMainWindow):
 
 
         self.statusBar().showMessage("准备..")
-        self.setGeometry(200, 200, 300, 300)
+        #self.setGeometry(200, 200, 300, 300)
         self.setWindowTitle("statusbar")
         self.show()
 
