@@ -34,7 +34,10 @@ class TestUI(QMainWindow):
 
     def video_play(self, sender):
         pixmap = QPixmap().fromImage(sender)
-        self.label.setPixmap(pixmap)
+        pixmap2 = pixmap.scaled(self.label.width(), self.label.height())
+
+        self.label.setPixmap(pixmap2)
+        self.label_2.setPixmap(pixmap)
 
 
 
@@ -55,7 +58,7 @@ class VideoThread(QThread):
             bytesPerLine = 3*width
             cv2.cvtColor(frame, cv2.COLOR_BGR2RGB, frame)
             image = QImage(frame.data, width, height, bytesPerLine, QImage.Format_RGB888)
-            image = QImage("pen.ico")
+            #image = QImage("pen.ico")
             success, frame = video_capture.read()
             self.__sig.emit(image)
 
